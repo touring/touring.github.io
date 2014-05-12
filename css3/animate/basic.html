@@ -2,27 +2,97 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Demo</title>
+<title>CSS3变形动画基础</title>
 <style type="text/css">
 /*---------------global style---------------*/
-html,body,div{padding:0; margin:0;}
+html,body,div,h1,h2,p{padding:0; margin:0;}
 body{font-family: "Microsoft Yahei", Arial; font-size: 14px; color:#333;}
-
+.page-title{font-size: 20px; text-align: center; line-height: 60px; background:#3a383e; color:#fff;}
+.demo-wrap{width: 1200px; margin:0 auto;}
+.demo-box{position: relative; width: 378px; height: 378px; margin:10px; float: left; border: 1px solid #ddd; overflow: hidden;}
+.demo-box:hover{border:1px solid #ccc; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);}
+.demo-box h2{position: absolute; left:20px; top:10px; font-size: 16px;}
+.util-clearfix:after{visibility : hidden; display : block; height : 0; font-size : 0; content : '\0020'; clear : both;}
+.util-clearfix{zoom : 1;}
 /*---------------demo style---------------*/
-.demo{width: 150px; padding:50px; border:1px solid #f30; margin:100px auto;}
-.demo-rotate{
+.demo{
+	width: 150px; padding:50px;  margin:100px auto;
+	border:1px solid #3da5dc;
+	background:#a4dcf9;
 	-webkit-transition:1s ease all; 
 	-moz-transition:1s ease all;
-	background:#ffc;
+}
+.demo-basic:hover{
+	-webkit-transform:rotate(360deg) scale(1.2 , 1.2); 
+	-moz-transform:rotate(360deg) scale(1.2 , 1.2); 
+	border:1px solid #f30;
+	background:#f90;
 }
 .demo-rotate:hover{
-	-webkit-transform:rotate(360deg) scale(1.2 , 1.2); 
-	-moz-transform:(360deg) scale(1.2 , 1.2); 
-	background:#f90;
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+}
+.demo-rotate-3d:hover{
+	-webkit-transform:perspective(800px) rotateY(360deg);
+	-moz-transform:perspective(800px) rotateY(360deg);
+}
+.demo-scale:hover{
+	-webkit-transform:scale(0.8, 1.2);
+	-moz-transform:scale(0.8, 1.2);
+}
+.demo-scale-x:hover{
+	-webkit-transform:scale(-1.2, 1.2);
+	-moz-transform:scale(-1.2, 1.2);
+}
+.demo-translate:hover{
+	-webkit-transform:translate(100px);
+	-moz-transform:translate(100px);
+}
+.demo-skew:hover{
+	-webkit-transform:skew(45deg);
+	-moz-transform:skew(45deg);
+}
+.demo-matrix:hover{
+	-webkit-transform:matrix(1, 0.4, 0, 1, 0, 0);
+	-moz-transform:matrix(1, 0.4, 0, 1, 0, 0);
 }
 </style>
 </head>
 <body>
-<div class="demo demo-rotate">鼠标经过放大1.2倍，旋转360°并且改变颜色</div>
+<h1 class="page-title">CSS3变形动画基础</h1>
+<div class="demo-wrap util-clearfix">
+	<div class="demo-box">
+		<h2>变形动画基础</h2>
+		<div class="demo demo-basic">鼠标经过放大1.2倍，旋转360°并且改变颜色</div>
+	</div>
+	<div class="demo-box">
+		<h2>rotate()旋转动画</h2>
+		<div class="demo demo-rotate">鼠标经过顺时针旋转45°</div>
+	</div>
+	<div class="demo-box">
+		<h2>rotate()三维空间内Y轴旋转60°</h2>
+		<div class="demo demo-rotate-3d">鼠标经过三维空间内Y轴旋转360°</div>
+	</div>
+	<div class="demo-box">
+		<h2>scale()缩放动画</h2>
+		<div class="demo demo-scale">鼠标经过高度缩小80%，高度放大120%</div>
+	</div>
+	<div class="demo-box">
+		<h2>scale()先翻转再缩放</h2>
+		<div class="demo demo-scale-x">鼠标经过先翻转再放大1.2倍</div>
+	</div>
+	<div class="demo-box">
+		<h2>translate()位移动画</h2>
+		<div class="demo demo-translate">鼠标经过右移100px</div>
+	</div>
+	<div class="demo-box">
+		<h2>skew()倾斜动画</h2>
+		<div class="demo demo-skew">鼠标经过倾斜60°</div>
+	</div>
+	<div class="demo-box">
+		<h2>matrix()矩阵动画</h2>
+		<div class="demo demo-matrix">鼠标跑经过矩阵变形</div>
+	</div>
+</div>
 </body>
 </html>
