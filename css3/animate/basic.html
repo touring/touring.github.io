@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Demo</title>
+<style type="text/css">
+/*---------------global style---------------*/
+html,body,div{padding:0; margin:0;}
+body{font-family: "Microsoft Yahei", Arial; font-size: 14px; color:#333;}
+
+/*---------------demo style---------------*/
+.demo{width: 150px; padding:50px; border:1px solid #f30; margin:100px auto;}
+.demo-rotate{
+	-webkit-transition:1s ease all; 
+	-moz-transition:1s ease all;
+	background:#ffc;
+}
+.demo-rotate:hover{
+	-webkit-transform:rotate(360deg) scale(1.2 , 1.2); 
+	-moz-transform:(360deg) scale(1.2 , 1.2); 
+	background:#f90;
+}
+</style>
+</head>
+<body>
+<div class="demo demo-rotate">鼠标经过放大1.2倍，旋转360°并且改变颜色</div>
+</body>
+</html>
