@@ -56,6 +56,26 @@ body{font-family: "Microsoft Yahei", Arial; font-size: 14px; color:#333;}
 	-webkit-transform:matrix(1, 0.4, 0, 1, 0, 0);
 	-moz-transform:matrix(1, 0.4, 0, 1, 0, 0);
 }
+.demoo{
+	position: absolute; left:0; top:100px;
+	width: 150px; padding:50px 10px; text-align: center;
+	border:1px solid #3da5dc;
+	background:#a4dcf9;
+}
+
+
+.demoo-basic{
+	-webkit-animation:0.5s 0.5s ease infinite alternate;
+	-webkit-animation-name:basic;
+	-moz-animation:0.5s 0.5s ease infinite alternate;
+	-moz-animation-name:basic;
+}
+@-webkit-keyframes basic{
+	0%{left:10px;}
+	100%{left:200px;}
+}
+
+
 </style>
 </head>
 <body>
@@ -92,6 +112,10 @@ body{font-family: "Microsoft Yahei", Arial; font-size: 14px; color:#333;}
 	<div class="demo-box">
 		<h2>matrix()矩阵动画</h2>
 		<div class="demo demo-matrix">鼠标经过矩阵变形</div>
+	</div>
+	<div class="demo-box">
+		<h2>无限循环动画</h2>
+		<div class="demoo demoo-basic">来回往返运动</div>
 	</div>
 </div>
 </body>
