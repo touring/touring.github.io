@@ -27,18 +27,14 @@ body{font-family: Arial;}
 <div class="block block-1" id="block-1">BLOCK A</div>
 <div class="block block-2" id="block-2">BLOCK B</div>
 <div class="block block-3" id="block-3">BLOCK C</div>
-<!-- <script type="text/javascript" src="../../base/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="../app/anchor.js"></script> -->
-<script src="http://style.aliunicorn.com/js/6v/atom/atom-tms.js?v=053016"></script>
-<script src="http://style.aliunicorn.com/js/5v/we/lib/jquery.js?v=053016"></script>
+<script type="text/javascript" src="../../base/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../app/anchor.js"></script>
 <script type="text/javascript">
-seajs.use(['js/5v/run/intl-activities/app/anchor/anchor.js'], function(anchor){
-	$('.nav').find('a').anchor({
-		offsetY : -60,
-        currentClass : 'current',
-        classElements : $('.nav').find('a'),
-        animateDuring   : 200
-	});
+$('.nav').find('a').anchor({
+	offsetY : -60,
+    currentClass : 'current',
+    classElements : $('.nav').find('a'),
+    duration   : 200
 });
 </script>
 </body>
