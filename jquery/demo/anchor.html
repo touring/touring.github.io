@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>anchor</title>
+<style type="text/css">
+html,body,div,a{padding:0; margin:0;}
+body{font-family: Arial;}
+.nav-box{position: fixed; left:0; top:0; width: 100%; height: 60px; background:#333;}
+.nav-box .nav{width: 990px; margin:0 auto; text-align: center;}
+.nav-box .nav a{display: inline-block; text-align: center; padding:0 20px; font-size: 16px; color:#fff; line-height: 60px; text-decoration: none;}
+.nav-box .nav a.current{background:#f30;}
+.block{width: 990px; height: 400px; line-height: 400px; text-align: center; font-size: 100px; margin:100px auto 0; border:2px solid #f30;}
+.block-1{background:#b1a9ec;}
+.block-2{background:#faa9a4;}
+.block-3{background:#a9e7ec;}
+</style>
+</head>
+<body>
+<div class="nav-box">
+	<div class="nav">
+		<a href="#block-1">BLOCK A</a>
+		<a href="#block-2">BLOCK B</a>
+		<a href="#block-3">BLOCK C</a>
+	</div>
+</div>
+<div class="block block-1" id="block-1">BLOCK A</div>
+<div class="block block-2" id="block-2">BLOCK B</div>
+<div class="block block-3" id="block-3">BLOCK C</div>
+<!-- <script type="text/javascript" src="../../base/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../app/anchor.js"></script> -->
+<script src="http://style.aliunicorn.com/js/6v/atom/atom-tms.js?v=053016"></script>
+<script src="http://style.aliunicorn.com/js/5v/we/lib/jquery.js?v=053016"></script>
+<script type="text/javascript">
+seajs.use(['js/5v/run/intl-activities/app/anchor/anchor.js'], function(anchor){
+	$('.nav').find('a').anchor({
+		offsetY : -60,
+        currentClass : 'current',
+        classElements : $('.nav').find('a'),
+        animateDuring   : 200
+	});
+});
+</script>
+</body>
+</html>
