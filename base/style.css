@@ -8,7 +8,7 @@ body{font-family: "Microsoft Yahei", Arial; font-size: 12px; color:#333;}
 /*content*/
 .content{width: 1200px; margin:10px auto;}
 .content .item{width: 358px; height: 358px; padding:10px; border:1px solid #ddd; margin:10px; float: left;}
-.content .item:hover{border:1px solid #ccc; box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);}
+.content .item:hover{border:1px solid #999;}
 .content .item h2{font-size: 16px; line-height: 40px;}
 .content .item a{display: inline-block; text-decoration: none; padding:2px 5px; border:1px solid #ddd; border-radius:3px; color:#333;}
 .content .item a:hover{color:#fd3035; border:1px solid #fd3035;}
