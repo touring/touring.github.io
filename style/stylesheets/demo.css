@@ -2,3 +2,8 @@
 body {
   font-size: 12px;
 }
+/* line 4, ../sass/demo.scss */
+body div {
+  padding: 0;
+  margin: 0;
+}
