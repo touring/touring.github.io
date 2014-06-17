@@ -1,4 +1,8 @@
 $fz12:12px;
+html,body,div,span,a,p,img{
+	padding:0;
+	margin:0;
+}
 body{
 	font-size: $fz12;
 	font-family: "Microsoft Yahei";
