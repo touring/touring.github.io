@@ -26,7 +26,7 @@ button{width: 60px; height: 24px; cursor: pointer;}
 <body>
 <div id="demo">
 	<ul class="list">
-		<li class="menu util-clearfix" style="display: none;">
+		<li class="menu util-clearfix">
 			<p>学号</p>
 			<p>姓名</p>
 			<p>性别</p>
@@ -56,7 +56,10 @@ button{width: 60px; height: 24px; cursor: pointer;}
 		<p class="editable">
 			<span class="disp"><%= Sex %></span>
 			<span class="edit">
-				<input type="text" name="Sex" id="sex">
+				<select id="sex" name="Sex">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
 			</span>
 		</p>
 		<p class="editable">
@@ -68,9 +71,9 @@ button{width: 60px; height: 24px; cursor: pointer;}
 		<p class="delete">Delete</p>
 	</script>
 </div>
-<script type="text/javascript" src="../core/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="../core/underscore-min.js"></script>
-<script type="text/javascript" src="../core/backbone-min.js"></script>
-<script type="text/javascript" src="../page/demo.js"></script>
+<script type="text/javascript" src="../vendor/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../vendor/underscore-min.js"></script>
+<script type="text/javascript" src="../vendor/backbone-min.js"></script>
+<script type="text/javascript" src="js/application.js"></script>
 </body>
 </html>
