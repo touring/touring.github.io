@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Backbone</title>
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<div id="todoapp">
+	<header id="header">
+		<input type="text" id="new-todo" placeholder="Create a Task" autofocus>
+	</header>
+	<section id="main">
+		<input type="checkbox" id="toggle-all" name="toggle-all">
+		<label for="toggle-all">标记为全部完成</label>
+
+		<ul id="todo-list"></ul>
+	</section>
+	<footer id="footer"></footer>
+</div>
+<div id="info">
+	<p>双击可编辑任务</p>
+</div>
+<script type="text/template" id="item-template">
+	<div class="view">
+		<input type="checkbox" class="toggle" <%= completed ? 'checked' : '' %>>
+		<label><%= title %></label>
+	</div>
+</script>
+<script src="../vendor/jquery-2.1.1.min.js"></script>
+<script src="../vendor/underscore-min.js"></script>
+<script src="../vendor/backbone-min.js"></script>
+<script src="../vendor/backbone.localStorage.js"></script>
+<script src="js/model/todo.js"></script>
+<script src="js/collection/todoCollection.js"></script>
+<script src="js/views/todoView.js"></script>
+<script src="js/views/appView.js"></script>
+<script src="js/router/router.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
