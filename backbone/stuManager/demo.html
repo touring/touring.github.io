@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Static</title>
+</head>
+<style type="text/css">
+html,body,div,p,a,ul,li{padding:0; margin:0;}
+#demo{width: 520px; margin:20px auto;}
+ul,li{list-style:none;}
+.util-clearfix:after {visibility : hidden; display : block; height : 0; font-size : 0; content : '\0020'; clear : both;}
+.util-clearfix {zoom : 1;}
+#demo li p{float: left;width: 100px; border-right:2px solid #fff; text-align: center; line-height: 30px; border-bottom:1px dashed #999;}
+#demo li.menu p{background:#3a9729; color:#fff; border-bottom:none;}
+#demo li .disp{display: block;}
+#demo li .edit{text-align: center; display: none; height: 40px;}
+#demo li .edit input{height: 24px; width: 50px; border:1px solid #ddd; border-radius:3px; padding:0 10px; font-size: 14px; font-weight:bold; color:#3a9729;}
+#demo .delete{color:#06f; cursor: pointer;}
+#demo .delete:hover{text-decoration: underline;}
+.input{display: block; padding:5px 0;}
+.input input{width: 100px; padding:0 10px; height: 24px; border:1px solid #ddd; border-radius:3px;}
+.input select{width: 60px; height: 24px;}
+button{width: 60px; height: 24px; cursor: pointer;}
+.tips{display: none; margin:20px auto; line-height: 20px; background:#f2f2f2; border:1px solid #ddd; padding:0 10px; font-size: 12px;}
+</style>
+<body>
+<div id="demo">
+	<ul class="list">
+		<li class="menu util-clearfix">
+			<p>学号</p>
+			<p>姓名</p>
+			<p>性别</p>
+			<p>城市</p>
+			<p>操作</p>
+		</li>
+	</ul>
+	<label class="input" for="">学号：<input type="text" name="code" id="addCode"></label>
+	<label class="input" for="">姓名：<input type="text" name="Name" id="addName"></label>
+	<label class="input" for="">性别：
+		<select id="addSex" name="Sex">
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+		</select>
+	</label>
+	<label class="input" for="">城市：<input type="text" name="City" id="addCity"></label>
+	<div class="tips"></div>
+	<button>增加</button>
+	<script type="text/template" id="tpl">
+		<p><%= code %></p>
+		<p class="editable">
+			<span class="disp"><%= Name %></span>
+			<span class="edit">
+				<input type="text" name="Name" id="name">
+			</span>
+		</p>
+		<p class="editable">
+			<span class="disp"><%= Sex %></span>
+			<span class="edit">
+				<select id="sex" name="Sex">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
+			</span>
+		</p>
+		<p class="editable">
+			<span class="disp"><%= City %></span>
+			<span class="edit">
+				<input type="text" name="City" id="city">
+			</span>
+		</p>
+		<p class="delete">Delete</p>
+	</script>
+</div>
+<script type="text/javascript" src="../vendor/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../vendor/underscore-min.js"></script>
+<script type="text/javascript" src="../vendor/backbone-min.js"></script>
+<script type="text/javascript" src="module/model/model.js"></script>
+<script type="text/javascript" src="module/collection/collection.js"></script>
+<script type="text/javascript" src="module/view/singleView.js"></script>
+<script type="text/javascript" src="module/view/appView.js"></script>
+<script type="text/javascript" src="module/app.js"></script>
+</body>
+</html>
