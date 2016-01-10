@@ -1,57 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Code Touring</title>
-<link rel="bookmark icon" type="image/ico" href="ui/favicon.ico" />
-<link rel="shortcut icon" type="image/ico" href="ui/favicon.ico" />
-<link rel="stylesheet" href="base/style.css">
+<meta charset="UTF-8">
+<title>有赞批发简报生成小工具</title>
+<style>
+html,body,div,canvas,label,input,a,h1,textarea{padding:0; margin:0;outline:0;}
+.make-post{width: 1080px; height: 925px; margin:10px auto; box-shadow: 2px 2px 5px #999;}
+.show-canvas{float: left;}
+canvas{border:1px dashed #ddd; margin:10px;}
+.edit-canvas{margin-left: 660px; width: 400px; padding-top:20px;}
+.edit-canvas h1{font-size:20px; border-bottom:2px solid #476cf8; color:#476cf8; line-height: 30px;}
+.edit-canvas .edit-block{margin:10px 0; line-height: 30px; color:#333;}
+.edit-canvas .edit-block label{font-size: 14px; color:#476cf8;}
+.edit-canvas .edit-block input[type="text"]{width: 200px; height: 30px; border:1px solid #ddd; border-radius:3px; padding:0 10px; font-size: 14px; font-weight: bold;}
+.edit-canvas .edit-block textarea{border:1px solid #ddd; border-radius: 3px; display: block; margin-left: 50px; margin-top:-25px; font-size: 14px; padding:10px;}
+.download{display: block; width: 150px; height: 40px; border-radius: 5px; color:#fff; text-align: center; line-height: 40px; background: #f40; text-decoration: none;}
+</style>
 </head>
 <body>
-<div class="header-wrap">
-	<div class="header"></div>
+<div class="make-post">
+    <div class="show-canvas">
+        <canvas id="myCanvas" width="640" height="900"></canvas>
+    </div>
+    <div class="edit-canvas">
+    	<h1>参数配置</h1>
+		<div class="edit-block">
+			<label>日期：</label>
+			<input type="text" id="js-date">
+		</div>
+		<div class="edit-block">
+			<label>数据：</label>
+			<input type="text" id="js-data">
+		</div>
+		<div class="edit-block">
+			<label>文案：</label>
+			<textarea id="js-des" cols="30" rows="10"></textarea>
+		</div>
+		<div class="edit-block">
+			<label>二维码：</label>
+			<input id="js-qrcode" type="file" name="qrcode" accept="image/*">
+		</div>
+		<div class="edit-block">
+			<label>店铺图片：</label>
+			<input id="js-logo" type="file" name="logo" accept="image/*">
+		</div>
+		<a download="avatar.png" class="download" id="js-download">下载简报</a>
+    </div>
 </div>
-<div class="content util-clearfix">
-	<div class="item">
-		<h2>CSS3动画</h2>
-		<a href="css3/animate/basic.html" target="_blank">CSS3基础动画</a>
-	</div>
-	<div class="item">
-		<h2>jQuery源码分析</h2>
-	</div>
-	<div class="item">
-		<h2>Seajs源码分析</h2>
-	</div>
-	<div class="item">
-		<h2>jQuery插件开发</h2>
-	</div>
-	<div class="item">
-		<h2>JavaScript</h2>
-	</div>
-	<div class="item">
-		<h2>Html5应用</h2>
-	</div>
-	<div class="item">
-		<h2>Node.js</h2>
-	</div>
-	<div class="item">
-		<h2>Node Webkit</h2>
-	</div>
-	<div class="item">
-		<h2>前端模板引擎</h2>
-	</div>
-	<div class="item">
-		<h2>AngularJS</h2>
-		<a href="angular/shopcart/index.html">购物车</a>
-	</div>
-	<div class="item">
-		<h2>Backbone</h2>  
-		<a href="backbone/stuManager/index.html">学生管理系统</a>
-	</div>
-</div>
-<div class="footer" style="display: none;">
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5890812'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D5890812%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
-</div>
-<script type="text/javascript" src="base/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="touring.js"></script>
+<script src="./canvas.js"></script>
+</body>
 </html>
