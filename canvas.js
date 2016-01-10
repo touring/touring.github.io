@@ -161,6 +161,7 @@ function coverImage(image, options) {
 
 $('js-download').onclick = function(){
     var dt = canvasMap.toDataURL('image/png');
+    this.setAttribute('download', $('js-date').value + '.png');
     this.href = dt.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
 }
 
