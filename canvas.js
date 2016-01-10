@@ -48,6 +48,8 @@ writeCanvasText('2015/1/11', 50, 35, 'left', 24, fontColor);
 $('js-date').onkeyup = function(e){
     var date = e.target.value;
     ctx.clearRect(0,0,640,80);
+    ctx.fillStyle="#fff";
+    ctx.fillRect(0,0,640,80);
     writeCanvasText(date, 50, 35, 'left', 24, fontColor);
 }
 
@@ -58,8 +60,8 @@ writeCanvasText('48297', 320, 90, 'center', 90, '#e03c00');
 $('js-data').onkeyup = function(e){
     var data = e.target.value;
     ctx.clearRect(0,90,640,120);
-    // ctx.fillStyle="red";
-    // ctx.fillRect(0,90,640,120);
+    ctx.fillStyle="#fff";
+    ctx.fillRect(0,90,640,120);
     writeCanvasText(data, 320, 90, 'center', 90, '#e03c00');
 }
 
@@ -75,6 +77,8 @@ ctx.wrapText(des, 50, 210, 540, 36);
 $('js-des').onkeyup = function(e){
     var des = e.target.value;
     ctx.clearRect(0,200,640,160);
+    ctx.fillStyle="#fff";
+    ctx.fillRect(0,200,640,160);
     ctx.font = '20px Arial';
     ctx.fillStyle = fontColor;
     ctx.textAlign = 'left';
