@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>有赞批发简报生成小工具</title>
+<link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico" />
 <style>
+@font-face {font-family: "yt";src: url("./yt.ttf");}
 html,body,div,canvas,label,input,a,h1,textarea{padding:0; margin:0;outline:0;}
-.make-post{width: 1080px; height: 925px; margin:10px auto; box-shadow: 2px 2px 5px #999;}
+.make-post{width: 1080px; height: 925px; margin:10px auto; box-shadow: 0 0 5px #999;}
 .show-canvas{float: left;}
 canvas{border:1px dashed #ddd; margin:10px;}
 .edit-canvas{margin-left: 660px; width: 400px; padding-top:20px;}
@@ -15,7 +17,7 @@ canvas{border:1px dashed #ddd; margin:10px;}
 .edit-canvas .edit-block input[type="text"]{width: 200px; height: 30px; border:1px solid #ddd; border-radius:3px; padding:0 10px; font-size: 14px; font-weight: bold;}
 .edit-canvas .edit-block textarea{border:1px solid #ddd; border-radius: 3px; display: block; margin-left: 50px; margin-top:-25px; font-size: 14px; padding:10px;}
 .edit-canvas .edit-block .tips{display: inline-block; color:#f30; font-size: 14px; margin-left:50px;}
-.download{display: block; width: 150px; height: 40px; border-radius: 5px; color:#fff; text-align: center; line-height: 40px; background: #f40; text-decoration: none;}
+.download{display: block; width: 150px; height: 40px; margin:20px 0 0 50px; border-radius: 5px; color:#fff; text-align: center; line-height: 40px; background: #f40; text-decoration: none;}
 </style>
 </head>
 <body>
@@ -31,12 +33,12 @@ canvas{border:1px dashed #ddd; margin:10px;}
 		</div>
 		<div class="edit-block">
 			<label>数据：</label>
-			<input type="text" id="js-data">
+			<input type="text" id="js-data" style="color:#e03c00;">
 		</div>
 		<div class="edit-block">
 			<label>文案：</label>
 			<textarea id="js-des" cols="30" rows="10"></textarea>
-			<span class="tips">需要自行按回车键换行🙈</span>
+			<span class="tips">需要自行按回车键换行<span style="font-size:24px;">🙈🙈🙈</span></span>
 		</div>
 		<div class="edit-block">
 			<label>二维码：</label>
@@ -46,7 +48,7 @@ canvas{border:1px dashed #ddd; margin:10px;}
 			<label>店铺图片：</label>
 			<input id="js-logo" type="file" name="logo" accept="image/*">
 		</div>
-		<a download="avatar.png" class="download" id="js-download">下载简报</a>
+		<a download="jianbao.png" class="download" id="js-download">下载简报</a>
     </div>
 </div>
 <script src="./canvas.js"></script>

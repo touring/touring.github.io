@@ -36,7 +36,7 @@ ctx.fillStyle = '#fff';
 ctx.fillRect(0, 0, 640, 900);
 
 function writeCanvasText(text, x, y, align, fontSize, color){
-    ctx.font = fontSize +'px "Microsoft Yahei" Arial';
+    ctx.font = fontSize +'px yt "Microsoft Yahei" Arial';
     ctx.fillStyle = color;
     ctx.textBaseline = 'top';
     ctx.textAlign = align;
@@ -54,9 +54,8 @@ $('js-date').onkeyup = function(e){
 }
 
 
-
 // 数据
-writeCanvasText('48297', 320, 90, 'center', 90, '#e03c00');
+writeCanvasText('48297+', 320, 90, 'center', 90, '#e03c00');
 $('js-data').onkeyup = function(e){
     var data = e.target.value;
     ctx.clearRect(0,90,640,120);
@@ -68,11 +67,14 @@ $('js-data').onkeyup = function(e){
 
 
 // 说明
-var  des = '新疆地处亚欧大陆腹地，陆地边境线5600多公里，周边与俄罗斯、\n哈萨克斯坦、吉尔吉斯斯坦、塔吉克斯坦、巴基斯坦、蒙古、\n印度、阿富汗斯坦八国接壤，\n在历史上是古丝绸之路的重要通道，现在是第二座“亚欧大陆桥';
+var  des = '从此不再起早贪黑挤市场抢货，打开有赞批发，你所熟悉的\n' + 
+           '店铺和商家都在这里啊。有赞批发，有你有赞！有赞批发！\n' +
+           '从此不再起早贪黑挤市啊场抢货，打开有赞批发，你熟悉的\n' + 
+           '店铺和商家都在这里啊。有赞批发，有你有赞！有赞批发！\n';
 ctx.font = '20px Arial';
 ctx.fillStyle = fontColor;
 ctx.textAlign = 'left';
-ctx.wrapText(des, 50, 210, 540, 36);
+ctx.wrapText(des, 60, 210, 520, 36);
 
 $('js-des').onkeyup = function(e){
     var des = e.target.value;
@@ -82,12 +84,12 @@ $('js-des').onkeyup = function(e){
     ctx.font = '20px Arial';
     ctx.fillStyle = fontColor;
     ctx.textAlign = 'left';
-    ctx.wrapText(des, 50, 210, 540, 36);
+    ctx.wrapText(des, 60, 210, 520, 36);
 }
 
 // 二维码
 var qrCodeImage = new Image();
-qrCodeImage.src = './code.jpg';
+qrCodeImage.src = './code.png';
 qrCodeImage.onload = function(){
     ctx.drawImage(qrCodeImage, 190, 350, 260, 260);
 }
@@ -118,9 +120,9 @@ shopAvatarImage.onload = function(){
 
 
 // 扫一扫
-writeCanvasText('微信扫一扫 或', 320, 610, 'center', 14, fontColor);
+writeCanvasText('微信扫一扫 或', 320, 615, 'center', 14, fontColor);
 // 文案
-writeCanvasText('长按图片识别图中二维码访问店铺', 320, 630, 'center', 14, fontColor);
+writeCanvasText('长按图片识别图中二维码访问店铺', 320, 640, 'center', 14, fontColor);
 
 
 
@@ -161,7 +163,8 @@ function coverImage(image, options) {
 
 $('js-download').onclick = function(){
     var dt = canvasMap.toDataURL('image/png');
-    this.setAttribute('download', $('js-date').value + '.png');
+    var fileName = $('js-date').value || '简报';
+    this.setAttribute('download',  fileName + '.png');
     this.href = dt.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
 }
 
@@ -169,10 +172,7 @@ $('js-download').onclick = function(){
 
    
 // -----------------------
-ctx.font = '30px Arial bold';
-ctx.fillStyle = fontColor;
-ctx.textAlign = 'left';
-ctx.fillText('--------------------------', 40, 720);
+writeCanvasText('--------------------', 40, 720, 'left', 30, fontColor);
 
 var jianbaoImg = new Image();
 jianbaoImg.src = './jianbao.png';
@@ -180,12 +180,6 @@ jianbaoImg.onload = function(){
     coverImage(jianbaoImg, {x:40, y:750, width:180, height:95})
 }
 
-ctx.font = '26px Arial';
-ctx.fillStyle = fontColor;
-ctx.textAlign = 'left';
-ctx.fillText('他们做得不错', 230, 810);
+writeCanvasText('他们做得不错', 230, 810, 'left', 26, fontColor);
 
-ctx.font = '15px Arial';
-ctx.fillStyle = fontColor;
-ctx.textAlign = 'center';
-ctx.fillText('数据来源：有赞批发商户提供，数据真实无水分，上榜商家奖励10个积分。', 320, 860);
+writeCanvasText('数据来源：有赞批发商户提供，数据真实无水分，上榜商家奖励10个积分。', 50, 860, 'left', 15, fontColor);
