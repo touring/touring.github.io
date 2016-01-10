@@ -36,7 +36,7 @@ ctx.fillStyle = '#fff';
 ctx.fillRect(0, 0, 640, 900);
 
 function writeCanvasText(text, x, y, align, fontSize, color){
-    ctx.font = fontSize +'px yt "Microsoft Yahei" Arial';
+    ctx.font = fontSize +'px "Microsoft Yahei" Arial';
     ctx.fillStyle = color;
     ctx.textBaseline = 'top';
     ctx.textAlign = align;
