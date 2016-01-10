@@ -88,7 +88,6 @@ $('js-des').onkeyup = function(e){
 // 二维码
 var qrCodeImage = new Image();
 qrCodeImage.src = './code.jpg';
-qrCodeImage.crossOrigin = '*';
 qrCodeImage.onload = function(){
     ctx.drawImage(qrCodeImage, 190, 350, 260, 260);
 }
@@ -100,7 +99,6 @@ uploadFile($('js-logo'), {}, true);
 // Shop avatar
 var shopAvatarImage = new Image();
 shopAvatarImage.src = './avatar.jpg';
-shopAvatarImage.crossOrigin = '*';
 shopAvatarImage.onload = function(){
     
     var tempCanvas = document.createElement("canvas"),
@@ -131,7 +129,6 @@ function uploadFile(oInput, options, isArc){
         var file = oInput.files[0];
         var reader = new FileReader();
         var uploadImage = new Image();
-        uploadImage.crossOrigin = '*';
         reader.onloadend = function(){
             uploadImage.src = reader.result;
         }
@@ -178,7 +175,6 @@ ctx.fillText('--------------------------', 40, 720);
 
 var jianbaoImg = new Image();
 jianbaoImg.src = './jianbao.png';
-jianbaoImg.crossOrigin = '*';
 jianbaoImg.onload = function(){
     coverImage(jianbaoImg, {x:40, y:750, width:180, height:95})
 }
