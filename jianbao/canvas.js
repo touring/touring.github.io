@@ -169,9 +169,6 @@ $('js-download').onclick = function(){
 }
 
 
-
-   
-// -----------------------
 writeCanvasText('--------------------', 40, 720, 'left', 30, fontColor);
 
 var jianbaoImg = new Image();
