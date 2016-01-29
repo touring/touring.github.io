@@ -46,7 +46,7 @@ function drawBg(image, options) {
 
 function writeCanvasText(text, x, y, align, fontSize, color){
     ctx.save();
-    ctx.font = fontSize +'px normal Arial';
+    ctx.font = fontSize +'px bold myFont Arial';
     ctx.fillStyle = color;
     ctx.textBaseline = 'top';
     ctx.textAlign = align;
