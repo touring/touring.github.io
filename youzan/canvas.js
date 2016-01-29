@@ -67,6 +67,8 @@ function render () {
     writeCanvasText('我在 有赞(买家版) 等你', 300, 220, 'center', 24, 'Arial', fontColor);
     ctx.drawImage(qrCodeImage, 0, 621, 600, 279);
     ctx.restore();
+    var dt = canvas.toDataURL('image/png');
+    $('save-image').src = dt.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
 }
 
 $('js-download').onclick = function(){
