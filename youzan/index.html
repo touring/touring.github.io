@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+html,body,div,canvas,label,input,a,h1,textarea{padding:0; margin:0;outline:0;}
+.make-post{width: 1200px; height: 925px; margin:10px auto; box-shadow: 0 0 5px #999;}
+.show-canvas{float: left; background:url(./default.jpg) no-repeat center 10px;}
+canvas{border:1px dashed #ddd; margin:10px;}
+.edit-canvas{margin-left: 660px; width: 400px; padding-top:20px;}
+.edit-canvas h1{font-size:20px; border-bottom:2px solid #476cf8; color:#476cf8; line-height: 30px;}
+.edit-canvas .edit-block{margin:10px 0; line-height: 30px; color:#333;}
+.edit-canvas .edit-block label{font-size: 14px; color:#476cf8;}
+.edit-canvas .edit-block input[type="text"]{width: 200px; height: 30px; border:1px solid #ddd; border-radius:3px; padding:0 10px; font-size: 14px; font-weight: bold;}
+.edit-canvas .edit-block textarea{width:355px; height: 60px; border:1px solid #ddd; border-radius: 3px; display: block; margin-left: 50px; margin-top:-25px; font-size: 14px; padding:10px;}
+.edit-canvas .edit-block .tips{display: inline-block; color:#f30; font-size: 14px; margin-left:50px;}
+.download{display: block; width: 150px; height: 40px; margin:20px 0 0 50px; border-radius: 5px; color:#fff; text-align: center; line-height: 40px; background: #f40; text-decoration: none;}
+</style>
+</head>
+<body>
+
+<div class="make-post">
+    <div class="show-canvas">
+        <canvas id="myCanvas" width="600" height="900"></canvas>
+    </div>
+    <div class="edit-canvas">
+    	<h1>海报设置</h1>
+    	<div class="edit-block">
+    		<label>上传海报背景图：</label>
+    		<input id="js-logo" type="file" name="logo" accept="image/*">
+    	</div>
+    	<div class="edit-block">
+    		<label>文案：</label>
+    		<textarea id="js-des" cols="20" rows="10"></textarea>
+    		<span class="tips">需要自行按回车键换行<span style="font-size:24px;">🙈🙈🙈</span></span>
+    	</div>
+		<div class="edit-block">
+			<label>店铺名称：</label>
+			<input type="text" id="js-store" style="width:300px;" placeholder="我是音乐葡萄酒计划">
+		</div>
+		<a download="jianbao.png" class="download" id="js-download">下载海报</a>
+    </div>
+</div>
+
+<script src="canvas.js"></script>
+</body>
+</html>
