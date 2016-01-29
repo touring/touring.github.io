@@ -12,6 +12,9 @@ var store = 'xxx店铺';
 var qrCodeImage = new Image();
 qrCodeImage.src = './yz.png';
 
+var defaultFont = new Image();
+defaultFont.src = './font.ttf';
+
 $('js-des').onkeyup = function(e){
     des = e.target.value;
     render();
@@ -44,9 +47,9 @@ function drawBg(image, options) {
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 }
 
-function writeCanvasText(text, x, y, align, fontSize, color){
+function writeCanvasText(text, x, y, align, fontSize, font, color){
     ctx.save();
-    ctx.font = fontSize +'px bold myFont Arial';
+    ctx.font = fontSize +'px ' + font;
     ctx.fillStyle = color;
     ctx.textBaseline = 'top';
     ctx.textAlign = align;
@@ -61,10 +64,10 @@ function render () {
     ctx.font = '40px Arial';
     ctx.fillStyle = fontColor;
     ctx.textAlign = 'center';
-    writeCanvasText(des + ' & 有赞的口碑好货', 300, 50, 'center', 36, fontColor);
-    writeCanvasText('都是良心推荐啊', 300, 100, 'center', 36, fontColor);
-    writeCanvasText('我是' + store, 300, 180, 'center', 24, fontColor);
-    writeCanvasText('我在 有赞(买家版) 等你', 300, 220, 'center', 24, fontColor);
+    writeCanvasText(des + ' & 有赞的口碑好货', 300, 50, 'center', 40, 'myFont', fontColor);
+    writeCanvasText('都是良心推荐啊', 300, 100, 'center', 40, 'myFont',fontColor);
+    writeCanvasText('我是' + store, 300, 180, 'center', 24, 'Arial', fontColor);
+    writeCanvasText('我在 有赞(买家版) 等你', 300, 220, 'center', 24, 'Arial', fontColor);
     ctx.drawImage(qrCodeImage, 0, 621, 600, 279);
     ctx.restore();
 }
