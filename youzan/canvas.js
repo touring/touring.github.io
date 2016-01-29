@@ -6,8 +6,8 @@ var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 var fontColor = '#fff';
 var uploadImage;
-var des = '张震岳的酒';
-var store = '我是音乐葡萄酒计划';
+var des = 'xxx的xx产品';
+var store = 'xxx店铺';
 
 var qrCodeImage = new Image();
 qrCodeImage.src = './yz.png';
@@ -61,7 +61,7 @@ function render () {
     ctx.font = '40px Arial';
     ctx.fillStyle = fontColor;
     ctx.textAlign = 'center';
-    writeCanvasText(des + '&有赞的口碑好货', 300, 50, 'center', 36, fontColor);
+    writeCanvasText(des + ' & 有赞的口碑好货', 300, 50, 'center', 36, fontColor);
     writeCanvasText('都是良心推荐啊', 300, 100, 'center', 36, fontColor);
     writeCanvasText('我是' + store, 300, 180, 'center', 24, fontColor);
     writeCanvasText('我在 有赞(买家版) 等你', 300, 220, 'center', 24, fontColor);
