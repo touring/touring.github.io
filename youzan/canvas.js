@@ -1,27 +1,3 @@
-CanvasRenderingContext2D.prototype.wrapText = function (text, x, y, maxWidth, lineHeight) {
-    var lines = text.split("\n");
-    for (var i = 0; i < lines.length; i++) {
-        var words = lines[i].split(' ');
-        var line = '';
-
-        for (var n = 0; n < words.length; n++) {
-            var testLine = line + words[n] + ' ';
-            var metrics = this.measureText(testLine);
-            var testWidth = metrics.width;
-            if (testWidth > maxWidth && n > 0) {
-                this.fillText(line, x, y);
-                line = words[n] + ' ';
-                y += lineHeight;
-            } else {
-                line = testLine;
-            }
-        }
-
-        this.fillText(line, x, y);
-        y += lineHeight;
-    }
-}
-
 var $ = function(node){
     return document.getElementById(node);
 }
@@ -30,7 +6,7 @@ var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 var fontColor = '#fff';
 var uploadImage;
-var des = '张震岳的酒和有赞的热销榜\n' + '都是良心推荐啊';
+var des = '张震岳的酒';
 var store = '我是音乐葡萄酒计划';
 
 var qrCodeImage = new Image();
@@ -48,7 +24,6 @@ $('js-store').onkeyup = function(e){
 
 // 上传海报
 uploadFile($('js-logo'));
-
 
 function uploadFile(oInput){
     oInput.onchange = function(e){
@@ -69,12 +44,12 @@ function drawBg(image, options) {
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 }
 
-function writeCanvasText(text, x, y, fontSize, color){
+function writeCanvasText(text, x, y, align, fontSize, color){
     ctx.save();
-    ctx.font = fontSize +'px normal  Arial';
+    ctx.font = fontSize +'px normal Arial';
     ctx.fillStyle = color;
     ctx.textBaseline = 'top';
-    ctx.textAlign = 'center';
+    ctx.textAlign = align;
     ctx.fillText(text, x, y);
     ctx.restore();
 }
@@ -86,9 +61,10 @@ function render () {
     ctx.font = '40px Arial';
     ctx.fillStyle = fontColor;
     ctx.textAlign = 'center';
-    ctx.wrapText(des, 300, 80, 500, 50);
-    writeCanvasText(store, 300, 180, 26, fontColor);
-    writeCanvasText('我在 有赞(买家版) 等你', 300, 220, 26, fontColor);
+    writeCanvasText(des + '&有赞的口碑好货', 300, 50, 'center', 36, fontColor);
+    writeCanvasText('都是良心推荐啊', 300, 100, 'center', 36, fontColor);
+    writeCanvasText(store, 300, 180, 'center', 26, fontColor);
+    writeCanvasText('我在 有赞(买家版) 等你', 300, 220, 'center', 26, fontColor);
     ctx.drawImage(qrCodeImage, 0, 621, 600, 279);
     ctx.restore();
 }
