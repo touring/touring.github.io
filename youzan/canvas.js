@@ -15,6 +15,10 @@ qrCodeImage.src = './yz.png';
 var defaultFont = new Image();
 defaultFont.src = './font.ttf';
 
+defaultFont.onload = function(){
+    $('loading-font').innerHTML = '加载完成! 您可继续编辑';
+}
+
 $('js-des').onkeyup = function(e){
     des = e.target.value;
     render();
