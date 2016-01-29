@@ -63,8 +63,8 @@ function render () {
     ctx.textAlign = 'center';
     writeCanvasText(des + '&有赞的口碑好货', 300, 50, 'center', 36, fontColor);
     writeCanvasText('都是良心推荐啊', 300, 100, 'center', 36, fontColor);
-    writeCanvasText(store, 300, 180, 'center', 26, fontColor);
-    writeCanvasText('我在 有赞(买家版) 等你', 300, 220, 'center', 26, fontColor);
+    writeCanvasText('我是' + store, 300, 180, 'center', 24, fontColor);
+    writeCanvasText('我在 有赞(买家版) 等你', 300, 220, 'center', 24, fontColor);
     ctx.drawImage(qrCodeImage, 0, 621, 600, 279);
     ctx.restore();
 }
