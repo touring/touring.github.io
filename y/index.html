@@ -10,7 +10,7 @@
 <style>
 html,body,div,canvas,label,input,a,h1,textarea{padding:0; margin:0;outline:0;}
 .make-post{width: 1200px; height: 925px; margin:10px auto; box-shadow: 0 0 5px #999;}
-.show-canvas{float: left; background:url(./default.jpg) no-repeat center 10px;}
+.show-canvas{float: left; background:url(./default.jpg) no-repeat center 10px; position: relative;}
 .alert{color:#f60; font-size: 16px; font-weight: bold; margin:0;}
 canvas{border:1px dashed #ddd; margin:10px;}
 .edit-canvas{margin-left: 660px; width: 400px; padding:20px 10px 10px;}
@@ -21,7 +21,7 @@ canvas{border:1px dashed #ddd; margin:10px;}
 .edit-canvas .edit-block textarea{width:355px; height: 60px; border:1px solid #ddd; border-radius: 3px; display: block; margin-left: 50px; margin-top:-25px; font-size: 14px; padding:10px;}
 .edit-canvas .edit-block .tips{display: inline-block; color:#f30; font-size: 14px; margin-left:50px;}
 .download{display: block; width: 150px; height: 40px; margin:20px 0 0 72px; border-radius: 5px; color:#fff; text-align: center; line-height: 40px; background: #f40; text-decoration: none;}
-
+.save-image{width:600px; height: 900px; position: absolute; left:10px; top:10px; z-index:0;}
 @media screen and (max-width: 500px){
     .make-post{width: 620px;}
     .edit-canvas{margin-left: 0; width:620px;}
@@ -33,6 +33,7 @@ canvas{border:1px dashed #ddd; margin:10px;}
 <div class="make-post">
     <div class="show-canvas">
         <canvas id="myCanvas" width="600" height="900"></canvas>
+        <img src="./opacity.png" class="save-image" id="save-image">
     </div>
     <div class="edit-canvas">
     	<h1>海报设置（请使用PC打开Chrome浏览器生成海报）</h1>
