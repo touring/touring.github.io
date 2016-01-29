@@ -34,7 +34,7 @@ canvas{border:1px dashed #ddd; margin:10px;}
 <div class="make-post">
     <div class="show-canvas">
         <canvas id="myCanvas" width="600" height="900"></canvas>
-        <img src="./opacity.png" class="save-image" id="save-image">
+        <img src="./opacity.png" class="save-image hide" id="save-image">
     </div>
     <div class="edit-canvas">
     	<h1>海报设置（建议使用PC打开Chrome浏览器生成海报）</h1>
@@ -67,6 +67,7 @@ canvas{border:1px dashed #ddd; margin:10px;}
     var isMobile = isMobile();
     if(isMobile){
         document.getElementById('mobile').className = 'alert';
+        document.getElementById('save-image').className = 'save-image';
     } else {
         document.getElementById('js-download').className = 'download';
     }
