@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>有赞海报生成器</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico" />
+<style>
+html,body,div,canvas,label,input,a,h1,textarea{padding:0; margin:0;outline:0;}
+.make-post{width: 1200px; height: 925px; margin:10px auto; box-shadow: 0 0 5px #999;}
+.show-canvas{float: left; background:url(./default.jpg) no-repeat center 10px;}
+.alert{color:#f60; font-size: 16px; font-weight: bold; margin:0;}
+canvas{border:1px dashed #ddd; margin:10px;}
+.edit-canvas{margin-left: 660px; width: 400px; padding:20px 10px 10px;}
+.edit-canvas h1{font-size:16px; border-bottom:2px solid #476cf8; color:#476cf8; line-height: 60px;}
+.edit-canvas .edit-block{margin:10px 0; line-height: 30px; color:#333;}
+.edit-canvas .edit-block label{font-size: 14px; color:#476cf8;}
+.edit-canvas .edit-block input[type="text"]{width: 200px; height: 30px; border:1px solid #ddd; border-radius:3px; padding:0 10px; font-size: 14px; font-weight: bold;}
+.edit-canvas .edit-block textarea{width:355px; height: 60px; border:1px solid #ddd; border-radius: 3px; display: block; margin-left: 50px; margin-top:-25px; font-size: 14px; padding:10px;}
+.edit-canvas .edit-block .tips{display: inline-block; color:#f30; font-size: 14px; margin-left:50px;}
+.download{display: block; width: 150px; height: 40px; margin:20px 0 0 72px; border-radius: 5px; color:#fff; text-align: center; line-height: 40px; background: #f40; text-decoration: none;}
+
+@media screen and (max-width: 500px){
+    .make-post{width: 620px;}
+    .edit-canvas{margin-left: 0; width:620px;}
+}
+</style>
+</head>
+<body>
+
+<div class="make-post">
+    <div class="show-canvas">
+        <canvas id="myCanvas" width="600" height="900"></canvas>
+    </div>
+    <div class="edit-canvas">
+    	<h1>海报设置（请使用PC打开Chrome浏览器生成海报）</h1>
+    	<div class="edit-block">
+            <p class="alert">请务必先上传您店铺的背景图片[建议尺寸：600 x 900] </p>
+            <p class="alert" id="loading-font"></p>
+    		<label>上传海报背景图：</label>
+    		<input id="js-logo" type="file" name="logo" accept="image/*">
+    	</div>
+    	<div class="edit-block">
+    		<label>描述文案：</label>
+            <input type="text" id="js-des" style="width:300px;" placeholder="张震岳的酒">
+    	</div>
+		<div class="edit-block">
+			<label>店铺名称：</label>
+			<input type="text" id="js-store" style="width:300px;" placeholder="音乐葡萄酒计划">
+		</div>
+		<a download="haibao.png" class="download" id="js-download">下载你生成的海报</a>
+        <p class="alert" style="padding-top:20px; line-height:24px;">手机端生成方法：在右边输入相应文字，左边属于你的海报就生成了，直接截屏，发朋友圈，搞定！</p>
+    </div>
+</div>
+
+<script src="canvas.js"></script>
+</body>
+</html>
