@@ -64,8 +64,8 @@ function render () {
     ctx.font = '40px Arial';
     ctx.fillStyle = fontColor;
     ctx.textAlign = 'center';
-    writeCanvasText(des + ' & 有赞的口碑好货', 300, 50, 'center', 40, 'myFont Arial', fontColor);
-    writeCanvasText('都是良心推荐啊', 300, 100, 'center', 40, 'myFont Arial',fontColor);
+    writeCanvasText(des + ' & 有赞的口碑好货', 300, 50, 'center', 36, 'myFont Arial', fontColor);
+    writeCanvasText('都是良心推荐啊', 300, 100, 'center', 36, 'myFont Arial',fontColor);
     writeCanvasText('我是' + store, 300, 180, 'center', 24, 'Arial', fontColor);
     writeCanvasText('我在 有赞(买家版) 等你', 300, 220, 'center', 24, 'Arial', fontColor);
     ctx.drawImage(qrCodeImage, 0, 621, 600, 279);
