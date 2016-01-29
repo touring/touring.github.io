@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
+<title>有赞海报生成器</title>
 <style>
 html,body,div,canvas,label,input,a,h1,textarea{padding:0; margin:0;outline:0;}
 .make-post{width: 1200px; height: 925px; margin:10px auto; box-shadow: 0 0 5px #999;}
 .show-canvas{float: left; background:url(./default.jpg) no-repeat center 10px;}
+.alert{color:#f60; font-size: 16px; font-weight: bold; margin:0;}
 canvas{border:1px dashed #ddd; margin:10px;}
 .edit-canvas{margin-left: 660px; width: 400px; padding-top:20px;}
 .edit-canvas h1{font-size:20px; border-bottom:2px solid #476cf8; color:#476cf8; line-height: 30px;}
@@ -27,6 +28,7 @@ canvas{border:1px dashed #ddd; margin:10px;}
     <div class="edit-canvas">
     	<h1>海报设置</h1>
     	<div class="edit-block">
+            <p class="alert">请务必先上传您店铺的背景图片 ! ! ! </p>
     		<label>上传海报背景图：</label>
     		<input id="js-logo" type="file" name="logo" accept="image/*">
     	</div>

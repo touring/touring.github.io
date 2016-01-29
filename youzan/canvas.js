@@ -71,7 +71,7 @@ function drawBg(image, options) {
 
 function writeCanvasText(text, x, y, fontSize, color){
     ctx.save();
-    ctx.font = fontSize +'px "Microsoft Yahei" Arial';
+    ctx.font = fontSize +'px normal  Arial';
     ctx.fillStyle = color;
     ctx.textBaseline = 'top';
     ctx.textAlign = 'center';
@@ -85,8 +85,8 @@ function render () {
     drawBg(uploadImage);
     ctx.font = '40px Arial';
     ctx.fillStyle = fontColor;
-    ctx.textAlign = 'left';
-    ctx.wrapText(des, 50, 80, 500, 50);
+    ctx.textAlign = 'center';
+    ctx.wrapText(des, 300, 80, 500, 50);
     writeCanvasText(store, 300, 180, 26, fontColor);
     writeCanvasText('我在 有赞(买家版) 等你', 300, 220, 26, fontColor);
     ctx.drawImage(qrCodeImage, 0, 621, 600, 279);
