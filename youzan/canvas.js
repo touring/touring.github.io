@@ -12,6 +12,9 @@ var store = 'xxx店铺';
 var qrCodeImage = new Image();
 qrCodeImage.src = './yz.png';
 
+var defaultFont = new Image();
+defaultFont.src = './font.ttf';
+
 $('js-des').onkeyup = function(e){
     des = e.target.value;
     render();
@@ -36,12 +39,6 @@ function uploadFile(oInput){
         reader.readAsDataURL(file);
         uploadImage.onload = function(){
             render();
-            var defaultFont = new Image();
-            // $('loading-font').innerHTML = '字体加载中……, 推荐加载完成后编辑';
-            // setTimeout(function(){
-            //     $('loading-font').innerHTML = '加载完成! 您可继续编辑';
-            // }, 60000);
-            defaultFont.src = './font.ttf';
         }
     }
 }
