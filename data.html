@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>数据转换器</title>
+<style>
+	textarea{
+		width: 1000px;
+		height: 200px;
+		padding:10px;
+		font-size: 14px;
+		display: block;
+		margin:20px auto;
+		border:1px solid #ddd;
+		border-radius:5px;
+	}
+	.copy-box{
+		width: 1000px;
+		height: 200px;
+	}
+	.switch{
+		display: inline-block;
+		width: 200px;
+		height: 50px;
+		margin:0 auto;
+		line-height: 50px;
+		text-align: center;
+		border-radius: 5px;
+		font-size: 16px;
+		text-decoration: none;
+		background:#f60;
+		color:#fff;
+	}
+	.desc-info{
+		font-size: 14px;
+		font-weight: bold;
+		width: 1000px;
+		margin:10px auto;
+	}
+	.power{
+		font-size: 12px;
+		text-align: center;
+		line-height: 100px;
+		color:#666;
+	}
+	.controller{
+		width: 1000px;
+		margin:0 auto;
+	}
+</style>
+</head>
+<p class="desc-info">1、复制Excel中数据到此输入框<b style="color:#f30;">[档口ID, 档口号,档口等级都是必填项，档口号没有的话用“暂无”替代]</b></p>
+<textarea class="js-data-str"></textarea>
+<p class="desc-info">2、复制以下输入框内容直接填入对应白名单即可</p>
+<textarea class="copy-box js-copy" readonly></textarea>
+<div class="controller">
+	<a href="javascript:void(0)" class="switch js-go">一键转换</a>
+	<a href="javascript:void(0)" class="switch js-clear" style="background:#999;">清除</a>
+</div>
+<p class="power">Powered by 旺仔</p>
+<body>
+	<script src="https://su.yzcdn.cn/pf/build/js/common_6670cc0117d1219e8fe17aa74ccfed0d.js"></script>
+	<script>
+		var go = $('.js-go');
+		var data = $('.js-data-str');
+		var nCopy = $('.js-copy');
+		go.on('click', function(){
+			var strArray = [];
+			var itemArray = [];
+			var lastArray = [];
+			var str = $.trim(data.val());
+			str = str.replace(/\s+/g, ',');
+			strArray = str.split(',');
+			$.each(strArray, function(i, item){
+				if(i%3 == 0){
+					itemArray.push(item);
+				} else if(i%3 == 1) {
+					itemArray.push(item);
+				} else if(i%3 == 2){
+					itemArray.push(item);
+					lastArray.push(itemArray);
+					itemArray = [];
+				}
+			});
+
+			var result = lastArray.map(function(item, i){
+				return item = item[0] + '__' + item[1] + '__' + item[2];
+			});
+
+			var resultStr = result.join('&');
+			nCopy.val('');
+			nCopy.val(resultStr);
+		});
+
+		$('.js-clear').on('click', function(){
+			nCopy.val('');
+			data.val('');
+		});
+	</script>
+</body>
+</html>
