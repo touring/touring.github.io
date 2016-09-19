@@ -86,10 +86,21 @@ html, body, div{padding:0; margin:0;}
 
 	function singmeAnimate(){
 		var randomIndex = RandomNum(0, 3);
+		var initWidth = animateWidthArr[RandomNum(0, 1)];
+		var initHeight = animateHeightArr[RandomNum(0, 1)];
+		
+		if(!initWidth && !initHeight){
+			initHeight = 300;
+		}
+
+		if(initWidth && initHeight){
+			initWidth = 0;
+		}
+
 		animateBlockArr[randomIndex].
 		css({
-			width: animateWidthArr[RandomNum(0, 1)],
-			height:animateHeightArr[RandomNum(0, 1)],
+			width: initWidth,
+			height:initHeight,
 		}).
 		animate({
 			width: 400,
