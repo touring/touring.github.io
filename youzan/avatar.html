@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>图片生成器</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico" />
+<style>
+html,body,div,canvas,label,input,a,h1,textarea{padding:0; margin:0;outline:0;}
+.make-post{width: 800px; margin:10px auto; box-shadow: 0 0 5px #999;}
+.show-canvas{margin:10px;background:url(./background.jpg) no-repeat center 10px; background-size:800px;}
+.alert{color:#476cf8; border-bottom: 2px solid #476cf8; font-size: 16px; font-weight: bold; margin-bottom: 10px;}
+.edit-canvas{width: 780px; padding:0 10px 10px;}
+.edit-canvas .edit-block{margin:10px 0; line-height: 30px; color:#333; margin-right: 10px;}
+.clear:after{content: ""; display: block; clear: both;  visibility: hidden;}
+.edit-user-info .edit-block{float: left;}
+.edit-canvas .edit-block label{font-size: 14px; color:#476cf8;}
+.edit-canvas .edit-block input[type="text"]{width: 200px; height: 30px; border:1px solid #ddd; border-radius:3px; padding:0 10px; font-size: 14px; font-weight: bold;}
+.download{display: block; width: 150px; height: 40px; margin:20px 0 0 60px; border-radius: 5px; color:#fff; text-align: center; line-height: 40px; background: #f40; text-decoration: none;}
+</style>
+</head>
+<body>
+
+<div class="make-post">
+    <div class="show-canvas">
+        <canvas id="myCanvas" width="800" height="422"></canvas>
+    </div>
+
+    <div class="edit-canvas">
+    	
+    	<div class="edit-block">
+            <p class="alert">请Chrome浏览器生成图片,头像建议尺寸400*400</p>
+    		<label>Avatar：</label>
+    		<input id="js-avatar" type="file" accept="image/*">
+    	</div>
+        <div class="edit-user-info clear">
+            <div class="edit-block">
+                <label>Name：</label>
+                <input type="text" id="js-name" style="width:100px;">
+            </div>
+            <div class="edit-block">
+                <label>WeChat：</label>
+                <input type="text" id="js-wechat" style="width:100px;">
+            </div>
+            <div class="edit-block">
+                <label>Jira：</label>
+                <input type="text" id="js-jira" style="width:100px;">
+            </div>
+        </div>
+		<a download="haibao.png" class="download" id="js-download">下载生成的图片</a>
+    </div>
+</div>
+
+<script>
+    var $ = function(node){
+        return document.getElementById(node);
+    }
+
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    var fontColor = '#fff';
+    var uploadImage;
+    var name = '旺仔';
+    var wechat = 'Aronsher';
+    var jira = 'wangzai';
+
+    var demoAvatar = new Image();
+    demoAvatar.src = './wangzai.png';
+
+    $('js-name').onkeyup = function(e){
+        name = e.target.value;
+        render();
+    }
+
+    $('js-wechat').onkeyup = function(e){
+        wechat = e.target.value;
+        render();
+    }
+
+    $('js-jira').onkeyup = function(e){
+        jira = e.target.value;
+        render();
+    }
+
+    uploadFile($('js-avatar'));
+
+    function uploadFile(oInput){
+        oInput.onchange = function(e){
+            var file = oInput.files[0];
+            var reader = new FileReader();
+            uploadImage = new Image();
+            reader.onloadend = function(){
+                uploadImage.src = reader.result;
+            }
+            reader.readAsDataURL(file);
+            uploadImage.onload = function(){
+                render();
+            }
+        }
+    }
+
+    function drawBg(image) {
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    }
+
+    function writeCanvasText(text, x, y, align, fontSize, font, color){
+        ctx.save();
+        ctx.font = fontSize +'px ' + font;
+        ctx.fillStyle = color;
+        ctx.textBaseline = 'top';
+        ctx.textAlign = align;
+        ctx.fillText(text, x, y);
+        ctx.restore();
+    }
+
+    function render () {
+        ctx.save();
+        canvas.width = canvas.width;
+        drawBg(uploadImage);
+        ctx.font = '40px Arial';
+        ctx.fillStyle = fontColor;
+        ctx.textAlign = 'center';
+        writeCanvasText(name, 400, 50, 'center', 36, 'Arial', fontColor);
+        writeCanvasText('都是良心推荐啊', 300, 100, 'center', 36, 'Arial',fontColor);
+        writeCanvasText('我是', 300, 180, 'center', 24, 'Arial', fontColor);
+        writeCanvasText('我在 有赞(买家版) 等你', 300, 220, 'center', 24, 'Arial', fontColor);
+        ctx.drawImage(demoAvatar, 600, 100, 300, 300);
+        ctx.restore();
+        var dt = canvas.toDataURL('image/png');
+        $('save-image').src = dt.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    }
+
+    $('js-download').onclick = function(){
+        var dt = canvas.toDataURL('image/png');
+        var fileName = $('js-name').value || '海报';
+        this.setAttribute('download',  fileName + '.png');
+        this.href = dt.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    }
+
+</script>
+</body>
+</html>
