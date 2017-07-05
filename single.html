@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico">
+<title>数据转换器</title>
+<style>
+	textarea{
+		width: 1000px;
+		height: 200px;
+		padding:10px;
+		font-size: 14px;
+		display: block;
+		margin:20px auto;
+		border:1px solid #ddd;
+		border-radius:5px;
+	}
+	.copy-box{
+		width: 1000px;
+		height: 200px;
+	}
+	.switch{
+		display: inline-block;
+		width: 200px;
+		height: 50px;
+		margin:0 auto;
+		line-height: 50px;
+		text-align: center;
+		border-radius: 5px;
+		font-size: 16px;
+		text-decoration: none;
+		background:#f60;
+		color:#fff;
+	}
+	.desc-info{
+		font-size: 14px;
+		font-weight: bold;
+		width: 1000px;
+		margin:10px auto;
+	}
+	.power{
+		font-size: 12px;
+		text-align: center;
+		line-height: 100px;
+		color:#666;
+	}
+	.controller{
+		width: 1000px;
+		margin:0 auto;
+	}
+</style>
+</head>
+<div class="desc-info">
+	<p style="font-size:14px; line-height: 20px;">
+		<b style="color:#f30;">填写格式：</b>
+		Banner链接、活动链接交替填写，每个链接一行，回车换行<br/>
+	</p>
+</div>
+<textarea class="js-data-str"></textarea>
+<p class="desc-info">2、复制以下输入框内容直接填入对应白名单即可</p>
+<textarea class="copy-box js-copy" readonly></textarea>
+<div class="controller">
+	<a href="javascript:void(0)" class="switch js-go">一键转换</a>
+	<a href="javascript:void(0)" class="switch js-clear" style="background:#999;">清除</a>
+</div>
+<p class="power">Powered by 旺仔</p>
+<body>
+	<script src="https://su.yzcdn.cn/pf/build/js/common_6670cc0117d1219e8fe17aa74ccfed0d.js"></script>
+	<script>
+		var go = $('.js-go');
+		var data = $('.js-data-str');
+		var nCopy = $('.js-copy');
+		go.on('click', function(){
+			var strArray = [];
+			var resultStr = '';
+			var str = $.trim(data.val());
+			str = str.replace(/\s+/g, ',');
+			strArray = str.split(',');
+			var len = strArray.length - 1;
+
+			var result = strArray.map(function(item, i){
+				if(i%2 != 1){
+					resultStr += item + '__';
+				} else {
+					if(len == i){
+						resultStr += item;
+					} else {
+						resultStr += item + '&&';
+					}
+				}
+			});
+			
+			nCopy.val('');
+			nCopy.val(resultStr);
+		});
+
+		$('.js-clear').on('click', function(){
+			nCopy.val('');
+			data.val('');
+		});
+	</script>
+</body>
+</html>
